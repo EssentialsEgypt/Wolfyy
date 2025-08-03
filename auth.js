@@ -33,25 +33,3 @@ export function verifyToken(token) {
   }
   return jwt.verify(token, secret);
 }
-
-/**
- * Extract and verify JWT from Authorization header in the request.
- * Returns decoded user payload or null if invalid or missing.
- *
- * @param {import('next').NextApiRequest} req
- * @returns {object|null} Decoded user or null
- */
-export async function verifyJWT(req) {
-  try {
-    const authHeader = req.headers.authorization || '';
-    if (!authHeader.startsWith('Bearer ')) {
-      return null;
-    }
-    const token = authHeader.substring(7);
-    const decoded = verifyToken(token);
-    return decoded;
-  } catch (error) {
-    console.error('verifyJWT error:', error);
-    return null;
-  }
-}
