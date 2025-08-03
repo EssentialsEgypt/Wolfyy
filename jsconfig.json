@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "services/*": ["services/*"],
+      "utils/*": ["utils/*"],
+      "middleware/*": ["middleware/*"]
+    }
+  }
+}
